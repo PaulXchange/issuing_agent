@@ -1,17 +1,32 @@
 # Documentation: https://github.com/bcgov/von-agent-template/tree/master/von-x-agent/config
 
-- name: my-permit.my-organization
+- name: kyc.regovtech
 
   version: '1.0.0'
-  description: The my-permit credential issued by my-org-full-name
-  path: /my-organization/my-permit
+  description: The KYC MyKad credential issued by Regov Technologies
+  path: /regov/kyc
+
+  topic: corp_num
 
   attributes:
     - corp_num
+    - mykad_number
+    - permit_id     #- internal_id_cognito_sub
+    - type_of_document
     - legal_name
-    - permit_id
-    - permit_type
+    - date_of_birth
+    - gender
+    - citizenship
+    - religion
+    - mykad_number_of_issues
+    - address
+    - city
+    - postal_code
+    - state
+    - country
+    - phone_number
     - permit_issued_date
+    - permit_type
     - permit_status
     - effective_date
 

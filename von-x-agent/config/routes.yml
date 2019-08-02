@@ -4,22 +4,22 @@ forms:
   my-permit:
 
     # URL for the Web form - becomes <server>/<path> e.g. http://localhost:5000/my-organization/my-permit
-    path: /my-organization/my-permit
+    path: /regov/kyc
   
     # type is always "issue-credential"
     type: issue-credential
   
-    schema_name: my-permit.my-organization
-    page_title: my-org-full-name Permits
-    title: Application for my-permit
+    schema_name: kyc.regovtech
+    page_title: Regov Technology Credential
+    title: Application for KYC
   
     # Templates are defined in von-x-agent/templates
-    template: bcgov.index.html
+    template: regov.index.html
   
     description: >
-      my-org-full-name issues my-permit credentials to organizations to authorize those organizations to be able to do something.
+     Regov Technology Credential issues kyc credentials to individuals to proof kyc status.
   
-    explanation: Use the form below to apply for a my-permit for your organization.
+    explanation: Use the form below to apply for a kyc credential.
 
     proof_request:
       id: greenlight_registration
