@@ -1,0 +1,22 @@
+[{
+  "attributes": {
+    "mykad_number": "900526-07-5451",
+    "internal_id_cognito_sub": "sub_2",
+    "type_of_document": "MyKad",
+    "name": "GAJENDIRAA/L R.SIVAJOTHI",
+    "date_of_birth": "1990-05-26",
+    "gender": "Male",
+    "citizenship": "Malaysia",
+    "religion": "Non Muslim",
+    "mykad_number_of_issues": "3",
+    "address": "62 PERSIARAN MAHSURI 2/5 SUNWAY TUNAS",
+    "city": "BAYAN LEPAS",
+    "postal_code": "11900",
+    "state": "PULAU PINANG",
+    "country": "Malaysia",
+    "phone_number": "123",
+    "credential_issue_date": "2019-10-20"
+  },
+  "schema": "Regov KYC MyKad Schema",
+  "version": "1.0.1"
+}]
