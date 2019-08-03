@@ -9,7 +9,7 @@ forms:
     # type is always "issue-credential"
     type: issue-credential
   
-    schema_name: kyc.regovtech
+    schema_name: Regov KYC MyKad Schema
     page_title: Regov Technology Credential
     title: Application for KYC
   

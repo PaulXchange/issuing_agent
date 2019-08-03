@@ -1,0 +1,117 @@
+'use strict';
+const axios = require('axios');
+
+const issueCredential = async (
+  id_number,
+  internal_id_cognito_sub,
+  type_of_document,
+  name,
+  date_of_birth,
+  gender,
+  citizenship,
+  religion,
+  mykad_number_of_issues,
+  address,
+  city,
+  postal_code,
+  state,
+  country,
+  phone_number,
+  credential_issue_date
+) => {
+  try {
+    //const credential_issue_date = new Date().toISOString().slice(0, 10);
+    const json_input = [{
+      attributes: {
+        id_number: id_number, //'900526-07-5451',
+        internal_id_cognito_sub: internal_id_cognito_sub, //'sub_2',
+        type_of_document: type_of_document, //'MyKad',
+        name: name, //'GAJENDIRA A/L R.SIVAJOTHI',
+        date_of_birth: date_of_birth, //'1990-05-26',
+        gender: gender, //'Male',
+        citizenship: citizenship, //'Malaysia',
+        religion: religion, //'Non Muslim',
+        mykad_number_of_issues: mykad_number_of_issues, //'3',
+        address: address, //'62 PERSIARAN MAHSURI 2/5 SUNWAY TUNAS',
+        city: city, //'BAYAN LEPAS',
+        postal_code: postal_code, //'11900',
+        state: state, //'PULAU PINANG',
+        country: country, //'MALAYSIA',
+        phone_number: phone_number, //'6012-3330333',
+        credential_issue_date: credential_issue_date //'2019-10-20'
+      },
+      schema: 'Regov KYC MyKad Schema',
+      version: '1.0.0'
+    }];
+
+    const json_string = JSON.stringify(json_input);
+    console.log(json_string);
+
+    return await axios.post(
+      'http://3.0.165.97:5001/regov/issue-credential',
+      json_string, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const queryStringToObject = queryString => {
+  let obj = {};
+  if (queryString) {
+    queryString
+      .slice(0)
+      .split('&')
+      .map(item => {
+        const [k, v] = item.split('=');
+        v ? (obj[k] = decodeURI(v)) : null;
+      });
+  }
+  return obj;
+};
+
+module.exports.CredentialIssuer = async event => {
+  //console.log(event);
+  if (event.body !== null && event.body !== undefined) {
+    //console.log(event.body);
+    //const body = queryStringToObject(event.body);
+    const body = JSON.parse(event.body);
+
+    console.log(body.cognito_sub);
+
+    const credential = await issueCredential(
+      body.id_number,
+      body.internal_id_cognito_sub,
+      body.type_of_document,
+      body.name,
+      body.date_of_birth,
+      body.gender,
+      body.citizenship,
+      body.religion,
+      body.mykad_number_of_issues,
+      body.address,
+      body.city,
+      body.postal_code,
+      body.state,
+      body.country,
+      body.phone_number,
+      body.credential_issue_date
+    );
+
+    console.log(credential.data);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+          credential: credential.data
+        },
+        null,
+        2
+      )
+    };
+  }
+};

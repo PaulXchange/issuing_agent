@@ -1,7 +1,8 @@
 [{
   "attributes": {
+    "corp_num" : "1122",
     "mykad_number": "900526-07-5451",
-    "internal_id_cognito_sub": "sub_2",
+    "permit_id": "sub_2",
     "type_of_document": "MyKad",
     "name": "GAJENDIRAA/L R.SIVAJOTHI",
     "date_of_birth": "1990-05-26",
@@ -15,8 +16,13 @@
     "state": "PULAU PINANG",
     "country": "Malaysia",
     "phone_number": "123",
-    "credential_issue_date": "2019-10-20"
+    "permit_issued_date": "2019-08-02",
+    "permit_type": "2019-08-02",
+    "permit_status": "2019-08-02",
+    "effective_date":"2019-08-02"
   },
   "schema": "Regov KYC MyKad Schema",
-  "version": "1.0.1"
+  "version": "1.0.0"
 }]
+
+

@@ -1,6 +1,6 @@
 issuers:
   regov:
-    name: kyc.regovtech
+    name: Regov KYC MyKad Schema
     abbreviation: regovtech
     url: https://www.regovtech.com
     email: hello@regovtech.com
@@ -30,7 +30,7 @@ issuers:
 
     credential_types:
     - description: Regov KYC MyKad Credential
-      schema: kyc.regovtech
+      schema: Regov KYC MyKad Schema
       issuer_url: $APPLICATION_URL/regov/kyc
       credential:
         effective_date:
@@ -51,15 +51,14 @@ issuers:
         # "value" identifies where to derive the data value (typically it comes from the claim)
         # "type" - if "value" - is the name of the attribute
         # "format" is an optional data format (default text)
-        mapping:
-          - model: name
-            fields:
-              text:
-                input: mykad_number
-                from: claim
-              type:
-                input: mykad_number
-                from: value
+        - model: name
+          fields:
+            text:
+              input: mykad_number
+              from: claim
+            type:
+              input: mykad_number
+              from: value
         - model: attribute
           fields:
             type:
