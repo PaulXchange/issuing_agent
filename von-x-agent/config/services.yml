@@ -9,7 +9,7 @@ issuers:
 
     connection:
       type: TheOrgBook
-      api_url: $TOB_API_URL
+      api_url: http://3.0.165.97:8080/api/v2/
       sign_target: false
 
     wallet:
@@ -103,7 +103,7 @@ verifiers:
     name: BC OrgBook
     connection:
       type: TheOrgBook
-      api_url: $TOB_API_URL
+      api_url: http://3.0.165.97:8080/api/v2/
     wallet:
       seed: "tob-verifier-wallet-000000000001"
 
